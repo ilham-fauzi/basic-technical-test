@@ -1,0 +1,8 @@
+const path = require('path');
+require('dotenv').config();
+module.exports = {
+    'url': process.env.DB_CONNECTION_STRING,
+    'migrations-path': path.join(__dirname, 'sequelize/migrations'),
+    'seeders-path': path.join(__dirname, 'sequelize/seeders'),
+    'models-path': path.join(__dirname, 'sequelize/models'),
+}
