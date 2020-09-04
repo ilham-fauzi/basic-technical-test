@@ -30,7 +30,7 @@ $ npm run test
 NODE_ENV=development
 APP_PORT=3000
 
-DB_CONNECTION_STRING=postgres://postgres:P@ssw0rd@localhost:5432/technical-test
+DB_CONNECTION_STRING=postgres://user:password@localhost:5432/database-name
 DB_MODELS_PATH=sequelize/models
 ```
 
