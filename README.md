@@ -19,6 +19,20 @@ $ cd basic-technical-test
 ```shell
 $ npm install --save
 ```
+## create .env file from existing .env.example file
+```shell
+$ cp .env.example .env
+```
+
+## copy and paste this code to .env file
+```shell
+NODE_ENV=development
+APP_PORT=3000
+
+DB_CONNECTION_STRING=postgres://user:password@localhost:5432/database-name
+DB_MODELS_PATH=sequelize/models
+```
+
 ## Database migration
 > migrate database first
 ```shell
@@ -37,20 +51,6 @@ $ npm run start
 > run unit testing by console
 ```shell
 $ npm run test
-```
-
-## sample env
-```shell
-$ cp .env.example .env
-```
-
-## copy and paste this code to .env file
-```shell
-NODE_ENV=development
-APP_PORT=3000
-
-DB_CONNECTION_STRING=postgres://user:password@localhost:5432/database-name
-DB_MODELS_PATH=sequelize/models
 ```
 
 
