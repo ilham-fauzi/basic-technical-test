@@ -1,7 +1,7 @@
 {
-    "name": "Basic Technical Test",
+    "name": "basic-technical-test",
     "version": "0.0.1",
-    "description": "this app kitabisa test",
+    "description": "",
     "author": "M. Ilkham Fauzi",
     "license": "MIT",
     "scripts": {
