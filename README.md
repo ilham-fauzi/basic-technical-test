@@ -1,13 +1,17 @@
 #Basic Technical Test (M. Ilkham Fauzi)
 
 ## Required
+```shell
 - node version : v10.8 or higher
+- npm version: 6.14.8
 - PostgreSQL: 12.2  
+```
 
 ## clone
 - clone this repo to your local using 
 ```shell
 git clone git@github.com:ilham-fauzi/basic-technical-test.git
+$ cd basic-technical-test
 ```
 
 ## Intalation
@@ -26,7 +30,7 @@ $ npx sequelize-cli db:migrate
 $ npm run start
 ```
 
-## Access API documentation
+## API documentation URL 
 > access your localhost <a href="http://localhost:3000/documentation" target="_blank">`http://localhost:3000/documentation`</a>
 
 ## unit testing
@@ -36,6 +40,11 @@ $ npm run test
 ```
 
 ## sample env
+```shell
+$ cp .env.example .env
+```
+
+## copy and paste this code to .env file
 ```shell
 NODE_ENV=development
 APP_PORT=3000

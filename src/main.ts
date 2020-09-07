@@ -12,8 +12,8 @@ async function bootstrap() {
 
     const app = await NestFactory.create(MainModule);
     const option =  new DocumentBuilder()
-        .setTitle('Test Kitabisa API documentation')
-        .setDescription('documentation test kitabisa')
+        .setTitle('API documentation')
+        .setDescription('This is the basic technical test documentation for the API test "kitabisa"')
         .setVersion('1.0.0')
         .build();
 
