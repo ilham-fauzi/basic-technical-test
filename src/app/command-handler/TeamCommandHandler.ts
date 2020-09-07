@@ -15,8 +15,7 @@ export class TeamCommandHandler implements ICommandHandler {
         const newTeam = Team.create(command);
         const checkTeamName: Team = await this.teamRepo.findOneByName(command.teamName);
         if (checkTeamName) { throw new TeamNameBadRequestException(command.teamName); }
-        await this.teamRepo.createTeam(newTeam);
-        const newNameFromDatabase: Team = await this.teamRepo.findOneByName(command.teamName);
+        const newNameFromDatabase: Team = await this.teamRepo.createTeam(newTeam);
         return newNameFromDatabase;
     }
 

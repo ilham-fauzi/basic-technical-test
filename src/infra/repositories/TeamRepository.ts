@@ -33,6 +33,8 @@ export class TeamRepository extends BaseSQLRepository implements TeamRepositoryI
             name: team.getTeamName,
             created_at: team.getCreatedAt,
             updated_at: team.getUpdatedAt,
+        }).then(() => {
+            return this.findOneByName(team.getTeamName);
         });
     }
 

@@ -15,7 +15,8 @@ import { TeamSQLStructure } from '../src/infra/types/SQLStructureTypes';
 import { PlayerQueryHandler } from '../src/app/query-handler/PlayerQueryhandler';
 import { PlayerListQuery } from '../src/app/query/PlayerListQuery';
 import { AppleCakeBundleCommandHandler } from '../src/app/command-handler/AppleCakeBundleCommandHandler';
-import { AppleCakeBundleCommand } from 'app/command/AppleCakeBundleCommand';
+import { AppleCakeBundleCommand } from '../SRC/app/command/AppleCakeBundleCommand';
+import moment = require('moment');
 
 describe('PlayerCommandHandler (e2e)', () => {
     let commandHandler: PlayerCommandHandler;
@@ -89,19 +90,27 @@ describe('TeamCommandHandler (e2e)', () => {
             const payload: TeamDTO = {
                 name: 'barcelona',
             };
-            teamTeapository.findOneByName = jest.fn().mockResolvedValue(null);
+            teamTeapository.findOneByName = jest.fn().mockResolvedValueOnce(null);
             const command: TeamCommand = {
                 teamName: payload.name,
             };
             const newTeam = Team.create(command);
-            teamTeapository.createTeam = jest.fn().mockResolvedValue(newTeam);
-            await expect(commandHanler.execute(command)).resolves.toEqual(undefined);
+            const newTeamFromSQL = {
+                id: 1,
+                teamName: payload.name,
+                createdAt: moment().toISOString(),
+                updatedAt: moment().toISOString(),
+            };
+            teamTeapository.createTeam = jest.fn().mockResolvedValue(newTeamFromSQL);
+            await expect(commandHanler.execute(command)).resolves.toEqual(newTeamFromSQL);
         });
 
         it('create team failed => throw error team duplicate', async () => {
             const payload: TeamSQLStructure = {
                 id: 1,
                 name: 'barcelona',
+                created_at: moment().toISOString(),
+                updated_at: moment().toISOString(),
             };
             const teamData = Team.fromSQL(payload);
             teamTeapository.findOneByName = jest.fn().mockResolvedValue(teamData);
