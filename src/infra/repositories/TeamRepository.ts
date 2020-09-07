@@ -1,3 +1,4 @@
+import moment = require('moment');
 import { Team } from '../../domain/models/Team';
 import { TeamRepositoryInterface } from '../../domain/repositories/TeamRepositoryInterface';
 import { BaseSQLRepository } from './base/BaseSQLRepository';
@@ -29,6 +30,8 @@ export class TeamRepository extends BaseSQLRepository implements TeamRepositoryI
         return this.upsert({
             id: team.getId,
             name: team.getTeamName,
+            created_at: team.getCreatedAt,
+            updated_at: team.getUpdatedAt,
         });
     }
 

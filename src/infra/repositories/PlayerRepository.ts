@@ -19,6 +19,8 @@ export class PlayerRepository extends BaseSQLRepository implements PlayerReposit
                             player.name,
                             player.back_number,
                             player.team_id,
+                            player.created_at,
+                            player.created_at,
                             Team.fromSQL(player.tbl_team),
                         );
                     }),
@@ -35,6 +37,8 @@ export class PlayerRepository extends BaseSQLRepository implements PlayerReposit
             name: player.getPlayerName,
             back_number: player.getBackNumber,
             team_id: player.getTeamId,
+            created_at: player.getCreatedAt,
+            updated_at: player.getUpdatedAt,
         });
     }
 

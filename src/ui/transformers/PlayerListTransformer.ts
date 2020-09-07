@@ -6,6 +6,7 @@ export class PlayerListTransformer {
             number: player.getBackNumber,
             player_name: player.getPlayerName,
             team_name: player.getTeam.getTeamName,
+            created_at: player.getCreatedAt,
         }));
     }
 }

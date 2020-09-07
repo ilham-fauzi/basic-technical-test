@@ -3,6 +3,7 @@
 import { PlayerCommand } from '../../app/command/PlayerCommand';
 import uuid = require('uuid');
 import { Team } from './Team';
+import moment = require('moment');
 
 export class Player {
     private id: string;
@@ -10,12 +11,16 @@ export class Player {
     private backNumber: number;
     private teamId: number;
     private team: Team;
+    private createdAt: string;
+    private updatedAt: string;
 
     constructor(
         id: string,
         playerName: string,
         backNumber: number,
         teamId: number,
+        createdAt?: string,
+        updatedAt?: string,
         team?: Team,
     ) {
         this.setId(id);
@@ -23,6 +28,8 @@ export class Player {
         this.setBackNumber(backNumber);
         this.setTeamId(teamId);
         this.setTeam(team);
+        this.setCreatedAt(createdAt);
+        this.setUpdatedAt(updatedAt);
     }
 
     static create(data: PlayerCommand) {
@@ -31,6 +38,8 @@ export class Player {
             data.playerName,
             data.backNumber,
             data.teamId,
+            moment().format('YYYY-MM-DD'),
+            moment().format('YYYY-MM-DD'),
         );
     }
 
@@ -54,6 +63,14 @@ export class Player {
         this.team = team;
     }
 
+    public setCreatedAt(createdAt: string): void {
+        this.createdAt = createdAt;
+    }
+
+    public setUpdatedAt(updatedAt: string): void {
+        this.updatedAt = updatedAt;
+    }
+
     get getId(): string {
         return this.id;
     }
@@ -72,5 +89,13 @@ export class Player {
 
     get getTeam(): Team {
         return this.team;
+    }
+
+    get getCreatedAt(): string {
+        return this.createdAt;
+    }
+
+    get getUpdatedAt(): string {
+        return this.updatedAt;
     }
 }
