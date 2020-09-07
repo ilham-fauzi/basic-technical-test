@@ -11,10 +11,6 @@
         "start": "nest start --watch",
         "lint": "tslint -p tsconfig.json -c tslint.json",
         "test": "jest",
-        "test:watch": "jest --watch",
-        "test:cov": "jest --coverage",
-        "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-        "test:e2e": "jest --config ./test/jest-e2e.json",
         "migrate": "npx sequelize-cli db:migrate"
     },
     "dependencies": {
@@ -27,8 +23,6 @@
         "@nestjs/platform-socket.io": "^7.4.2",
         "@nestjs/swagger": "^4.6.0",
         "@nestjs/websockets": "^7.4.2",
-        "bcryptjs": "^2.4.3",
-        "bluebird": "^3.7.2",
         "dotenv": "^8.1.0",
         "moment": "^2.24.0",
         "nest-router": "^1.0.9",
@@ -36,11 +30,8 @@
         "randomstring": "^1.1.5",
         "reflect-metadata": "^0.1.13",
         "rimraf": "^3.0.0",
-        "rxjs": "^6.5.3",
         "sequelize": "^5.19.6",
-        "socket.io": "^2.3.0",
         "swagger-ui-express": "^4.1.4",
-        "typeorm": "^0.2.25",
         "uuid": "^3.3.3"
     },
     "devDependencies": {

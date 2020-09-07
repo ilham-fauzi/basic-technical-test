@@ -41,7 +41,7 @@ export class SoccerController {
         const command = await adapter.getCommandQuery({ query });
         const { data, meta } = await this.queryBus.execute(command);
         return {
-            message: 'LIST_PALYER',
+            message: 'LIST_PLAYER',
             status: HttpStatus.FOUND,
             content: {
                 data: PlayerListTransformer.transformList(data),

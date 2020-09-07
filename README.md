@@ -13,12 +13,6 @@
 git clone git@github.com:ilham-fauzi/basic-technical-test.git
 $ cd basic-technical-test
 ```
-
-## Intalation
-> install all package first
-```shell
-$ npm install --save
-```
 ## create .env file from existing .env.example file
 ```shell
 $ cp .env.example .env
@@ -33,10 +27,16 @@ DB_CONNECTION_STRING=postgres://user:password@localhost:5432/database-name
 DB_MODELS_PATH=sequelize/models
 ```
 
+## Intalation
+> install all package first
+```shell
+$ npm install
+```
+
 ## Database migration
 > migrate database first
 ```shell
-$ npx sequelize-cli db:migrate
+$ npm run migrate
 ```
 
 ## Start application

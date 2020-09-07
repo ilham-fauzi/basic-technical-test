@@ -2,7 +2,6 @@ import { ModuleMetadata, Provider } from '@nestjs/common';
 import { PlayerCommandHandler } from '../src/app/command-handler/PlayerCommandHandler';
 import { PlayerRepositoryInterface } from '../src/domain/repositories/PlayerRepositoryInterface';
 import { TeamRepositoryInterface } from '../src/domain/repositories/TeamRepositoryInterface';
-import { Repository } from 'typeorm';
 import { Test } from '@nestjs/testing';
 import { playerDTO, teamDTO } from '../src/ui/types/SoccerTypes';
 import { PlayerCommand } from '../src/app/command/PlayerCommand';
