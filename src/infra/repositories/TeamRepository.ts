@@ -1,3 +1,4 @@
+import { TeamSQLStructure } from '../../infra/types/SQLStructureTypes';
 import moment = require('moment');
 import { Team } from '../../domain/models/Team';
 import { TeamRepositoryInterface } from '../../domain/repositories/TeamRepositoryInterface';
@@ -18,9 +19,9 @@ export class TeamRepository extends BaseSQLRepository implements TeamRepositoryI
     }
 
     async findOneByName(name: string): Promise<Team> {
-        return this.findOne({ name }).then((res: any) => {
+        return this.findOne({ name }).then((res: TeamSQLStructure) => {
             if (res) {
-                return new Team(res.name, res.id);
+                return new Team(res.name, res.created_at, res.updated_at, res.id);
             }
             return null;
         });

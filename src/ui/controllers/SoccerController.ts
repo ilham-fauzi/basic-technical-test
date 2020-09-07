@@ -9,6 +9,7 @@ import { InsertPlayerRequestAdapter } from '../request-adapters/InsertPlayerRequ
 import { InsertTeamRequestAdapter } from '../request-adapters/InsertTeamRequestAdapter';
 import { ResponseInterface } from '../types/CommonType';
 import { playerDTO, teamDTO } from '../types/SoccerTypes';
+import { TeamTransformer } from '../../ui/transformers/TeamTransformer';
 
 @Controller('/soccer')
 export class SoccerController {
@@ -55,11 +56,11 @@ export class SoccerController {
     async insertTeam(@Body() body: teamDTO): Promise<ResponseInterface> {
         const adapter = new InsertTeamRequestAdapter();
         const command = await adapter.getCommandQuery({ body });
-        await this.commandBus.execute(command);
+        const newTeam = await this.commandBus.execute(command);
         return {
             message: 'INSERT_TEAM_SUCCESS',
             status: HttpStatus.CREATED,
-            content: {},
+            content: TeamTransformer.transformDetail(newTeam),
         };
     }
 }
