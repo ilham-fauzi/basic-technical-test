@@ -1,6 +1,6 @@
 #Basic Technical Test (M. Ilkham Fauzi)
 
-## Required
+## Prerequisites
 ```shell
 - node version : v10.8 or higher
 - npm version: 6.14.8
@@ -27,7 +27,7 @@ DB_CONNECTION_STRING=postgres://user:password@localhost:5432/database-name
 DB_MODELS_PATH=sequelize/models
 ```
 
-## Intalation
+## Intallation
 > install all package first
 ```shell
 $ npm install
